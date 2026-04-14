@@ -1352,3 +1352,221 @@ textarea.input-field {
   border-radius: 50%;
   object-fit: cover;
 }
+
+
+
+
+/*-----------------------------------*\
+ * #ENHANCED ADDITIONS
+\*-----------------------------------*/
+
+/* ---- Cursor Glow ---- */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsla(24,74%,58%,0.12) 0%, transparent 70%);
+  z-index: 0;
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
+
+/* ---- Scroll-Reveal ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Active Nav Link ---- */
+.navbar-link.active-link {
+  color: var(--raw-seinna) !important;
+}
+.navbar-link.active-link::before { width: 100%; }
+
+/* ---- Typewriter cursor ---- */
+.typewriter { color: var(--raw-seinna); }
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--raw-seinna);
+  animation: blink 0.7s step-end infinite;
+  font-weight: 400;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---- Hero Enhancements ---- */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-greeting {
+  color: var(--raw-seinna);
+  font-size: var(--fs-6);
+  font-family: var(--ff-poppins);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.2s forwards;
+}
+.hero-subtitle {
+  color: var(--color-secondary);
+  font-size: var(--fs-6);
+  margin-top: 10px;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.5s forwards;
+}
+.hero-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.7s forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero title entrance */
+.hero-title {
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.35s forwards;
+}
+
+/* ---- Ripple ---- */
+.btn { position: relative; overflow: hidden; }
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 6px; height: 6px;
+  background: hsla(0,0%,100%,0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+@keyframes ripple {
+  to { transform: scale(60); opacity: 0; }
+}
+
+/* ---- Skill Bars ---- */
+.skill-bars-section {
+  padding-block: 60px;
+}
+.container-inner { max-width: 900px; margin-inline: auto; padding-inline: 20px; }
+.skill-bars-subtitle {
+  margin-bottom: 30px;
+}
+.skill-bars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 600px) {
+  .skill-bars-grid { grid-template-columns: 1fr 1fr; }
+}
+.skill-bar-item {}
+.skill-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: var(--color-primary);
+  font-size: var(--fs-6);
+  font-family: var(--ff-poppins);
+}
+.skill-bar-track {
+  height: 7px;
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--raw-seinna), var(--scarlet));
+  border-radius: 999px;
+  transition: width 1.2s cubic-bezier(.25,.8,.25,1);
+}
+
+/* ---- Project Card Overlay ---- */
+.card-banner { position: relative; overflow: hidden; }
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: hsla(0,0%,0%,0.6);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.card-overlay span {
+  color: var(--white);
+  font-size: var(--fs-6);
+  font-family: var(--ff-poppins);
+  font-weight: var(--fw-700);
+  letter-spacing: 0.5px;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+.project-card:is(:hover,:focus) .card-overlay { opacity: 1; }
+.project-card:is(:hover,:focus) .card-overlay span { transform: translateY(0); }
+.project-card .card-banner img {
+  transition: transform 0.4s ease;
+}
+.project-card:is(:hover,:focus) .card-banner img {
+  transform: scale(1.05);
+}
+
+/* ---- Glassmorphism Stats ---- */
+.stats-card {
+  border: 1px solid hsla(0,0%,100%,0.06);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.stats-card:is(:hover,:focus) {
+  border-color: hsla(24,74%,58%,0.35);
+  box-shadow: 0 8px 40px hsla(24,74%,58%,0.12);
+}
+
+/* ---- Skill card glow on hover ---- */
+.skill-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.skill-card:is(:hover) {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 8px 24px hsla(24,74%,58%,0.25);
+}
+
+/* ---- Footer copyright ---- */
+.copyright {
+  color: var(--color-secondary);
+  font-size: var(--fs-7);
+  line-height: 1.6;
+}
+
+/* ---- Cert section top padding ---- */
+.cert-section { padding-top: 0; }
+
+/* ---- Form focus ring enhancement ---- */
+.input-field:focus {
+  outline: 2px solid var(--raw-seinna);
+  outline-offset: 2px;
+}
+
+/* ---- Hero position fix ---- */
+.hero { position: relative; }
+

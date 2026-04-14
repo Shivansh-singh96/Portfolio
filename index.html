@@ -5,55 +5,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shivansh - personal portfolio</title>
+  <meta name="description" content="Shivansh Singh – Software Developer & Data Analyst. B.Tech CSE student crafting smart, user-friendly web and data solutions.">
+  <title>Shivansh – Portfolio</title>
 
-  <!-- 
-    - favicon
-  -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!-- 
-    - google font link
-  -->
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Saira+Stencil+One&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body id="top" class="dark_theme">
 
-  <!-- 
-    - #HEADER
-  -->
+  <!-- Cursor glow (desktop only) -->
+  <div class="cursor-glow" aria-hidden="true"></div>
 
+  <!-- HEADER -->
   <header class="header" data-header>
     <div class="container">
 
       <h1 class="h1 logo">
-  <a href="#" class="logo-link">
-    <img src="./assets/images/1736437525240.jpg" alt="My Photo" />
-    Shivansh<span>.</span>
-  </a>
-</h1>
-
+        <a href="#" class="logo-link">
+          <img src="./assets/images/1736437525240.jpg" alt="Shivansh Singh" width="40" height="40">
+          Shivansh<span>.</span>
+        </a>
+      </h1>
 
       <div class="navbar-actions">
-
-        <select name="language" id="lang">
+        <select name="language" id="lang" aria-label="Language">
           <option value="en">En</option>
         </select>
-
-        <button class="theme-btn" aria-label="Change Theme" title="Change Theme" data-theme-btn>
+        <button class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme" data-theme-btn>
           <span class="icon"></span>
         </button>
-
       </div>
 
       <button class="nav-toggle-btn" aria-label="Toggle Menu" title="Toggle Menu" data-nav-toggle-btn>
@@ -64,27 +53,11 @@
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-
-          <li>
-            <a href="#home" class="navbar-link">Home.</a>
-          </li>
-
-          <li>
-            <a href="#about" class="navbar-link">About.</a>
-          </li>
-
-          <li>
-            <a href="#skills" class="navbar-link">Skills.</a>
-          </li>
-
-          <li>
-            <a href="#portfolio" class="navbar-link">Portfolio.</a>
-          </li>
-
-          <li>
-            <a href="#contact" class="navbar-link">Contact.</a>
-          </li>
-
+          <li><a href="#home"      class="navbar-link">Home.</a></li>
+          <li><a href="#about"     class="navbar-link">About.</a></li>
+          <li><a href="#skills"    class="navbar-link">Skills.</a></li>
+          <li><a href="#portfolio" class="navbar-link">Portfolio.</a></li>
+          <li><a href="#contact"   class="navbar-link">Contact.</a></li>
         </ul>
       </nav>
 
@@ -92,63 +65,54 @@
   </header>
 
 
-
-
-
   <main>
     <article class="container">
 
-      <!-- 
-        - #HERO
-      -->
-
+      <!-- HERO -->
       <section class="hero" id="home">
 
+        <!-- Particle canvas -->
+        <canvas id="hero-particles" class="hero-particles" aria-hidden="true"></canvas>
+
         <figure class="hero-banner">
-
           <picture>
-            <source srcset="./assets/images/hero-banner.png" media="(min-width: 768px)">
+            <source srcset="./assets/images/hero-banner.png"    media="(min-width: 768px)">
             <source srcset="./assets/images/hero-banner-md.png" media="(min-width: 500px)">
-            <img src="./assets/images/hero-banner-sm.png" alt="My Animated Model"
-              class="w-100">
+            <img src="./assets/images/hero-banner-sm.png" alt="Shivansh animated model" class="w-100">
           </picture>
-
         </figure>
 
         <div class="hero-content">
-
-          <h2 class="h2 hero-title">I Craft Smart, User-Friendly Web & Data Solutions</h2>
-
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-
+          <p class="hero-greeting">Hi, I'm Shivansh 👋</p>
+          <h2 class="h2 hero-title">
+            I'm a&nbsp;<span class="typewriter" data-typewriter='["Saftware Developer","Data Analyst","Python Dev","Problem Solver"]'></span><span class="typewriter-cursor">|</span>
+          </h2>
+          <p class="hero-subtitle">Crafting smart, user-friendly web &amp; data solutions</p>
+          <div class="hero-btn-group">
+            <a href="#contact" class="btn btn-primary">Get in touch</a>
+            <a href="assets/Shivansh Resume Final.pdf" class="btn btn-secondary" download>Download CV</a>
+          </div>
         </div>
 
         <ul class="hero-social-list">
-
           <li>
-            <a href="https://github.com/Shivansh-singh96" class="hero-social-link">
+            <a href="https://github.com/Shivansh-singh96" class="hero-social-link" target="_blank" rel="noopener">
               <ion-icon name="logo-github"></ion-icon>
-
               <div class="tooltip">Github</div>
             </a>
           </li>
-
           <li>
-            <a href="https://www.instagram.com/shivansh.singh96/" class="hero-social-link">
+            <a href="https://www.instagram.com/shivansh.singh96/" class="hero-social-link" target="_blank" rel="noopener">
               <ion-icon name="logo-instagram"></ion-icon>
-
               <div class="tooltip">Instagram</div>
             </a>
           </li>
-
           <li>
-            <a href="https://www.linkedin.com/in/shivansh-singh-3b448a252/" class="hero-social-link">
+            <a href="https://www.linkedin.com/in/shivansh-singh-3b448a252/" class="hero-social-link" target="_blank" rel="noopener">
               <ion-icon name="logo-linkedin"></ion-icon>
-
               <div class="tooltip">Linkedin</div>
             </a>
           </li>
-
         </ul>
 
         <a href="#stats" class="scroll-down">Scroll</a>
@@ -156,40 +120,80 @@
       </section>
 
 
+      <!-- STATS -->
+      <section class="stats" id="stats">
+        <ul class="stats-list">
+
+          <li data-reveal data-reveal-delay="0">
+            <div class="stats-card">
+              <div class="card-icon">
+                <img src="./assets/images/stats-card_icon-1.png" alt="" loading="lazy">
+              </div>
+              <h3 class="card-title">
+                <span data-counter="5" data-suffix="+">0+</span>
+                <strong>Projects Completed</strong>
+              </h3>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </li>
+
+          <li data-reveal data-reveal-delay="100">
+            <div class="stats-card">
+              <div class="card-icon">
+                <img src="./assets/images/stats-card_icon-2.png" alt="" loading="lazy">
+              </div>
+              <h3 class="card-title">
+                <span data-counter="5" data-suffix="+">0+</span>
+                <strong>Certifications Earned</strong>
+              </h3>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </li>
+
+          <li data-reveal data-reveal-delay="200">
+            <div class="stats-card">
+              <div class="card-icon">
+                <img src="./assets/images/stats-card_icon-3.png" alt="" loading="lazy">
+              </div>
+              <h3 class="card-title">
+                <span data-counter="3" data-suffix="+">0+</span>
+                <strong>Years of Learning</strong>
+              </h3>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </li>
+
+        </ul>
+      </section>
 
 
-      <!-- 
-        - #ABOUT
-      -->
-
+      <!-- ABOUT -->
       <section class="about" id="about">
 
-        <figure class="about-banner">
-          <img src="./assets/images/about-banner.png" alt="A man in a alice blue shirt with a thinking expression"
-            class="w-100">
+        <figure class="about-banner" data-reveal data-reveal-delay="0">
+          <img src="./assets/images/about-banner.png" alt="Shivansh thinking" class="w-100" loading="lazy">
         </figure>
 
-        <div class="about-content section-content">
+        <div class="about-content section-content" data-reveal data-reveal-delay="150">
 
           <p class="section-subtitle">About me</p>
-
-          <h2 class="h3 section-title">Need a Website or Data Insight? I’ve Got You Covered!</h2>
+          <h2 class="h3 section-title">Need a Website or Data Insight? I've Got You Covered!</h2>
 
           <p class="section-text">
-            I’m a B.Tech Computer Science student with a strong interest in web development and data analytics.
-             I’m the founder of Otaku Threads, an anime merchandise brand, where I built and managed our e-commerce website using GoDaddy,
-              applying HTML and CSS fundamentals.
-               I’ve developed a face recognition-based attendance system using Python, OpenCV, and Firebase.
-
-I hold hands-on experience in SQL, Excel, 
-and Power BI. I’m passionate about turning ideas into real, functional solutions and constantly 
-exploring new technologies through personal projects, certifications, and team collaborations.
+            I'm a B.Tech Computer Science student with a strong interest in web development and data analytics.
+            I'm the founder of <strong>Otaku Threads</strong>, an anime merchandise brand, where I built and managed
+            our e-commerce website. I've developed a face recognition-based attendance system using Python, OpenCV,
+            and Firebase.
+          </p>
+          <p class="section-text">
+            I hold hands-on experience in SQL, Excel, and Power BI. Passionate about turning ideas into real,
+            functional solutions — constantly exploring new technologies through personal projects, certifications,
+            and team collaborations.
           </p>
 
           <div class="btn-group">
-            <button class="btn btn-secondary">Hire me</button>
-
-            <a href="assets/my-cv.pdf" class="btn btn-primary" download>Download CV</a>
+            <a href="#contact" class="btn btn-secondary">Hire me</a>
+            <a href="assets/Shivansh Resume Final.pdf" class="btn btn-primary" download>Download CV</a>
           </div>
 
         </div>
@@ -197,173 +201,69 @@ exploring new technologies through personal projects, certifications, and team c
       </section>
 
 
-
-
-
-      <!-- 
-        - #SKILLS
-      -->
-
+      <!-- SKILLS -->
       <section class="skills" id="skills">
 
-        <div class="skills-content section-content">
+        <div class="skills-content section-content" data-reveal>
 
           <p class="section-subtitle">My skills</p>
-
-          <h2 class="h3 section-title">What My Technical Skills Included?</h2>
-
+          <h2 class="h3 section-title">Technical Skills &amp; Tools</h2>
           <p class="section-text">
-            I build user-friendly digital experiences and analytical solutions that streamline tasks, uncover insights,
-             and deliver real value—using a blend of web technologies and data tools.
+            I build user-friendly digital experiences and analytical solutions using a blend of web technologies and data tools.
           </p>
 
           <div class="skills-toggle" data-toggle-box>
             <button class="toggle-btn active" data-toggle-btn>Skills</button>
-
-            <button class="toggle-btn" data-toggle-btn>Tools</button>
+            <button class="toggle-btn"        data-toggle-btn>Tools</button>
           </div>
 
         </div>
 
-        <div class="skills-box" data-skills-box>
+        <div class="skills-box" data-skills-box data-reveal data-reveal-delay="100">
 
           <ul class="skills-list">
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">HTML5</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/html5.png" alt="HTML5 logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="0">
+              <div class="skill-card"><div class="tooltip">HTML5</div><div class="card-icon"><img src="./assets/images/html5.png"    alt="HTML5"    loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">CSS3</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/css3.png" alt="CSS3 logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="60">
+              <div class="skill-card"><div class="tooltip">CSS3</div><div class="card-icon"><img src="./assets/images/css3.png"     alt="CSS3"     loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Java</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/java.png" alt="Java logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="120">
+              <div class="skill-card"><div class="tooltip">Java</div><div class="card-icon"><img src="./assets/images/java.png"     alt="Java"     loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Python</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/python.png" alt="Python logo">
-
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="180">
+              <div class="skill-card"><div class="tooltip">Python</div><div class="card-icon"><img src="./assets/images/python.png"  alt="Python"   loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">SQL</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/sql.png" alt="SQL logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="240">
+              <div class="skill-card"><div class="tooltip">SQL</div><div class="card-icon"><img src="./assets/images/sql.png"       alt="SQL"      loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Firebase</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/firebase.png" alt="Firebase logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="300">
+              <div class="skill-card"><div class="tooltip">Firebase</div><div class="card-icon"><img src="./assets/images/firebase.png" alt="Firebase" loading="lazy"></div></div>
             </li>
           </ul>
 
           <ul class="tools-list">
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Power BI</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/Power-BI.png" alt="Power-BI logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="0">
+              <div class="skill-card"><div class="tooltip">Power BI</div><div class="card-icon"><img src="./assets/images/Power-BI.png"    alt="Power BI"    loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Excel</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/excel.png" alt="Excel logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="60">
+              <div class="skill-card"><div class="tooltip">Excel</div><div class="card-icon"><img src="./assets/images/excel.png"          alt="Excel"       loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">PowerPoint</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/powerpoint.png" alt="PowerPoint logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="120">
+              <div class="skill-card"><div class="tooltip">PowerPoint</div><div class="card-icon"><img src="./assets/images/powerpoint.png" alt="PowerPoint"  loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Git</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/git.png" alt="Git logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="180">
+              <div class="skill-card"><div class="tooltip">Git</div><div class="card-icon"><img src="./assets/images/git.png"              alt="Git"          loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">MySQL</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/mysql.png" alt="MySql logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="240">
+              <div class="skill-card"><div class="tooltip">MySQL</div><div class="card-icon"><img src="./assets/images/mysql.png"          alt="MySQL"        loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">VS Code</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/vs-code.png" alt="VS Code logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="300">
+              <div class="skill-card"><div class="tooltip">VS Code</div><div class="card-icon"><img src="./assets/images/vs-code.png"      alt="VS Code"      loading="lazy"></div></div>
             </li>
-
-            <li>
-              <div class="skill-card">
-                <div class="tooltip">Photoshop</div>
-
-                <div class="card-icon">
-                  <img src="./assets/images/photoshop.png" alt="Photoshop logo">
-                </div>
-              </div>
+            <li data-reveal data-reveal-delay="360">
+              <div class="skill-card"><div class="tooltip">Photoshop</div><div class="card-icon"><img src="./assets/images/photoshop.png"  alt="Photoshop"    loading="lazy"></div></div>
             </li>
-
-            
           </ul>
 
         </div>
@@ -371,337 +271,281 @@ exploring new technologies through personal projects, certifications, and team c
       </section>
 
 
+      <!-- SKILL PROFICIENCY BARS -->
+      <section class="skill-bars-section" aria-label="Skill proficiency">
+        <div class="container-inner">
+          <p class="section-subtitle skill-bars-subtitle" data-reveal>Proficiency</p>
+          <div class="skill-bars-grid">
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="0">
+              <div class="skill-bar-meta"><span>HTML / CSS</span><span>90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="90"></div></div>
+            </div>
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="80">
+              <div class="skill-bar-meta"><span>Python</span><span>75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="75"></div></div>
+            </div>
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="160">
+              <div class="skill-bar-meta"><span>SQL / MySQL</span><span>80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="80"></div></div>
+            </div>
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="240">
+              <div class="skill-bar-meta"><span>Power BI / Excel</span><span>78%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="78"></div></div>
+            </div>
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="320">
+              <div class="skill-bar-meta"><span>Java</span><span>65%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="65"></div></div>
+            </div>
+
+            <div class="skill-bar-item" data-reveal data-reveal-delay="400">
+              <div class="skill-bar-meta"><span>Firebase</span><span>70%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-skill-bar="70"></div></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
 
-
-      <!-- 
-        - #PROJECTS
-      -->
-
+      <!-- PROJECTS -->
       <section class="project" id="portfolio">
 
         <ul class="project-list">
 
-          <li>
+          <li data-reveal>
             <div class="project-content section-content">
-
               <p class="section-subtitle">My Works</p>
-
-              <h2 class="h3 section-title">See My Works Which Will Amaze You!</h2>
-
+              <h2 class="h3 section-title">Projects That Will Amaze You!</h2>
               <p class="section-text">
-                I build high-quality, long-term solutions—from websites and data dashboards to intelligent systems like 
-                face recognition attendance and traffic management. My projects are well-documented, cleanly designed, and feature intuitive, 
-                user-friendly interfaces—ensuring accessibility and ease of use for both technical and non-technical users.
+                High-quality, long-term solutions — from websites and data dashboards to intelligent systems
+                like face recognition attendance and traffic management. Well-documented, cleanly designed,
+                and intuitive for both technical and non-technical users.
               </p>
-
             </div>
           </li>
 
-          <li>
-            <a href="#" class="project-card">
-
+          <li data-reveal data-reveal-delay="0">
+            <a href="https://github.com/Shivansh-singh96" target="_blank" rel="noopener" class="project-card">
               <figure class="card-banner">
-                <img src="./assets/images/project-1.png" class="w-100" alt="Face Recognigation and Attendance System">
+                <img src="./assets/images/project-1.png" class="w-100" alt="Face Recognition Attendance System" loading="lazy">
+                <div class="card-overlay"><span>View Project →</span></div>
               </figure>
-
               <div class="card-content">
-                <h3 class="h4 card-title">Face Recognigation and <br> Attendance System</h3>
-
+                <h3 class="h4 card-title">Face Recognition &amp;<br>Attendance System</h3>
                 <time class="publish-date" datetime="2025-02">February 2025</time>
               </div>
-
             </a>
           </li>
 
-          <li>
-            <a href="#" class="project-card">
-
+          <li data-reveal data-reveal-delay="80">
+            <a href="https://github.com/Shivansh-singh96" target="_blank" rel="noopener" class="project-card">
               <figure class="card-banner">
-                <img src="./assets/images/project-2.png" class="w-100" alt="Traffic Management System.">
+                <img src="./assets/images/project-2.png" class="w-100" alt="Traffic Management System" loading="lazy">
+                <div class="card-overlay"><span>View Project →</span></div>
               </figure>
-
               <div class="card-content">
                 <h3 class="h4 card-title">Traffic Management System</h3>
-
                 <time class="publish-date" datetime="2021-03">March 2021</time>
               </div>
-
             </a>
           </li>
 
-          <li>
-            <a href="#" class="project-card">
-
+          <li data-reveal data-reveal-delay="160">
+            <a href="https://github.com/Shivansh-singh96" target="_blank" rel="noopener" class="project-card">
               <figure class="card-banner">
-                <img src="./assets/images/project-3.jpg" class="w-100"
-                  alt="Intractive Dashboards.">
+                <img src="./assets/images/project-3.jpg" class="w-100" alt="Interactive Dashboards" loading="lazy">
+                <div class="card-overlay"><span>View Project →</span></div>
               </figure>
-
               <div class="card-content">
-                <h3 class="h4 card-title">Intractive Dashboards</h3>
-
+                <h3 class="h4 card-title">Interactive Dashboards</h3>
                 <time class="publish-date" datetime="2024-04">April 2024</time>
               </div>
-
             </a>
           </li>
 
-          <li>
-            <a href="#" class="project-card">
-
+          <li data-reveal data-reveal-delay="240">
+            <a href="https://github.com/Shivansh-singh96/Portfolio" target="_blank" rel="noopener" class="project-card">
               <figure class="card-banner">
-                <img src="./assets/images/project-4.png" class="w-100"
-                  alt="Blue digital watch on a dark liver background.">
+                <img src="./assets/images/project-4.png" class="w-100" alt="Personal Portfolio" loading="lazy">
+                <div class="card-overlay"><span>View Project →</span></div>
               </figure>
-
               <div class="card-content">
                 <h3 class="h4 card-title">Personal Portfolio</h3>
-
                 <time class="publish-date" datetime="2025-05">May 2025</time>
               </div>
-
             </a>
           </li>
 
-          <li>
-            <a href="#" class="project-card">
-
+          <li data-reveal data-reveal-delay="320">
+            <a href="https://github.com/Shivansh-singh96" target="_blank" rel="noopener" class="project-card">
               <figure class="card-banner">
-                <img src="./assets/images/project-5.png" class="w-100"
-                  alt="On a dark liver background, Airport luggage car carrying a luggage.">
+                <img src="./assets/images/project-5.png" class="w-100" alt="E-commerce Website" loading="lazy">
+                <div class="card-overlay"><span>View Project →</span></div>
               </figure>
-
               <div class="card-content">
                 <h3 class="h4 card-title">E-commerce Website</h3>
-
                 <time class="publish-date" datetime="2024-03">March 2024</time>
               </div>
-
             </a>
           </li>
 
-          
         </ul>
 
       </section>
 
 
+      <!-- CERTIFICATIONS -->
+      <section class="project cert-section" id="certifications">
 
-<!-- 
-  - #CERTIFICATE
--->
+        <ul class="project-list">
+          <li data-reveal>
+            <div class="project-content section-content">
+              <p class="section-subtitle">My Certifications</p>
+              <h2 class="h3 section-title">Certified &amp; Data-Driven</h2>
+              <p class="section-text">
+                Proud holder of the Google Data Analytics Professional Certificate — an eight-course program
+                by Google on Coursera, covering data cleaning, analysis, and visualization with Excel, SQL,
+                R, and Tableau.
+              </p>
+            </div>
+          </li>
 
-<section class="project" id="portfolio">
+          <li data-reveal data-reveal-delay="100">
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/GQL18005A5B4"
+               class="project-card" target="_blank" rel="noopener">
+              <figure class="card-banner">
+                <img src="./assets/images/Certificate-1.jpg" class="w-100" alt="Google Data Analytics Certificate" loading="lazy">
+                <div class="card-overlay"><span>View Certificate →</span></div>
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Google Data Analytics<br>Professional Certificate</h3>
+              </div>
+            </a>
+          </li>
 
-  <!-- <ul class="certificate-list"> -->
+          <li data-reveal data-reveal-delay="200" style="display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;padding:20px 0;">
+              <a href="./certification.html" class="btn btn-primary">View All Certifications →</a>
+            </div>
+          </li>
 
-    <li>
-      <div class="project-content section-content">
+        </ul>
 
-        <p class="section-subtitle">My Certifications</p>
-
-        <h2 class="h3 section-title">Certified and Data-Driven: Google Data Analytics Credential Earned</h2>
-
-        <p class="section-text">
-          I am proud to have earned the Google Data Analytics Professional Certificate — an intensive, eight-course 
-          program developed by Google and hosted on Coursera. This certification has provided me with hands-on experience 
-          in data cleaning, analysis, and visualization using tools such as Excel, SQL, R, and Tableau. It marks a key 
-          step in my journey as a data analyst, equipping me with job-ready skills to turn data into meaningful insights.
-        </p>
-
-      </div>
-    </li>
-
-    <li>
-      <a href="https://www.coursera.org/account/accomplishments/professional-cert/GQL18005A5B4" class="project-card" target="_blank">
-
-        <figure class="card-banner">
-          <img src="./assets/images/Certificate-1.jpg" class="w-100" alt="Google Data Analytics Professional Certificate">
-        </figure>
-
-        <div class="card-content">
-          <h3 class="h4 card-title">Google Data Analytics <br> Professional Certificate</h3>
-
-          <time class="Achievement-date" datetime="2025-05"></time>
-        </div>
-
-      </a>
-    </li>
-
-    <li>
-      <div style="text-align: center; margin-top: 2rem;">
-  <a href="./certification.html" class="btn-view-all" style="
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--color-primary);
-    color: var(--bg-primary);
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  ">
-    View Other Certifications
-  </a>
-</div>
-    </li>
-    
-
-  <!-- </ul> -->
-
-</section>
+      </section>
 
 
-
-
-
-
-
-      <!-- 
-        - #CONTACT
-      -->
-
+      <!-- CONTACT -->
       <section class="contact" id="contact">
 
-        <div class="contact-content section-content">
+        <div class="contact-content section-content" data-reveal>
 
           <p class="section-subtitle">Contact</p>
-
-          <h2 class="h3 section-title">Do You Have Any Query? Please Drop a Message</h2>
-
+          <h2 class="h3 section-title">Have a Query? Drop a Message!</h2>
           <p class="section-text">
-            Get in touch and let me know how i can help. Fill out the form and i’ll be in touch as soon as possible.
+            Get in touch and let me know how I can help. Fill out the form and I'll be in touch as soon as possible.
           </p>
 
           <ul class="contact-list">
 
             <li class="contact-list-item">
-
-              <div class="contact-item-icon">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-
+              <div class="contact-item-icon"><ion-icon name="location-outline"></ion-icon></div>
               <div class="wrapper">
                 <h3 class="h4 contact-item-title">Address:</h3>
-
                 <address class="contact-info">
-                  Jawahar Nagar Street no. 10 Satna M.P <br>
-                  Pincode-485001 
+                  Jawahar Nagar, Street No. 10, Satna M.P.<br>Pincode – 485001
                 </address>
               </div>
-
             </li>
 
             <li class="contact-list-item">
-
-              <div class="contact-item-icon">
-                <ion-icon name="call-outline"></ion-icon>
-              </div>
-
+              <div class="contact-item-icon"><ion-icon name="call-outline"></ion-icon></div>
               <div class="wrapper">
                 <h3 class="h4 contact-item-title">Phone:</h3>
-
-                <a href="+91 8305451216" class="contact-info">+91 8305451216 </a>
-
-                <a href="+91 8458978592" class="contact-info">+91 8458978592</a>
+                <a href="tel:+918305451216" class="contact-info">+91 8305451216</a>
+                <a href="tel:+918458978592" class="contact-info">+91 8458978592</a>
               </div>
-
             </li>
 
             <li class="contact-list-item">
-
-              <div class="contact-item-icon">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-
+              <div class="contact-item-icon"><ion-icon name="mail-outline"></ion-icon></div>
               <div class="wrapper">
                 <h3 class="h4 contact-item-title">Email:</h3>
-
                 <a href="mailto:shivansh.singh.cse@gmail.com" class="contact-info">shivansh.singh.cse@gmail.com</a>
-
-                <a href="shivansh.singh.cse@gmail.com" class="contact-info">shivansh.singh.cse@gmail.com</a>
               </div>
-
             </li>
 
             <li>
               <ul class="contac-social-list">
-
                 <li>
-                  <a href="https://github.com/Shivansh-singh96" class="contact-social-link">
+                  <a href="https://github.com/Shivansh-singh96" class="contact-social-link" target="_blank" rel="noopener">
                     <div class="tooltip">Github</div>
-
                     <ion-icon name="logo-github"></ion-icon>
                   </a>
                 </li>
-
                 <li>
-                  <a href="https://www.instagram.com/shivansh.singh96/" class="contact-social-link">
+                  <a href="https://www.instagram.com/shivansh.singh96/" class="contact-social-link" target="_blank" rel="noopener">
                     <div class="tooltip">Instagram</div>
-
                     <ion-icon name="logo-instagram"></ion-icon>
                   </a>
                 </li>
-
                 <li>
-                  <a href="https://www.linkedin.com/in/shivansh-singh-3b448a252/" class="contact-social-link">
+                  <a href="https://www.linkedin.com/in/shivansh-singh-3b448a252/" class="contact-social-link" target="_blank" rel="noopener">
                     <div class="tooltip">Linkedin</div>
-
                     <ion-icon name="logo-linkedin"></ion-icon>
                   </a>
                 </li>
-
               </ul>
-            </li>ṇ
+            </li>
 
           </ul>
 
         </div>
 
-       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-  
-  <!-- Required hidden input for Netlify -->
-  <input type="hidden" name="form-name" value="contact" />
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" data-reveal data-reveal-delay="150">
 
-  <!-- Honeypot field for spam protection -->
-  <p hidden>
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
 
-  <div class="form-wrapper">
-    <label for="name" class="form-label">Name</label>
-    <div class="input-wrapper">
-      <input type="text" name="name" id="name" required placeholder="e.g Shivansh" class="input-field">
-      <ion-icon name="person-circle"></ion-icon>
-    </div>
-  </div>
+          <div class="form-wrapper">
+            <label for="name" class="form-label">Name</label>
+            <div class="input-wrapper">
+              <input type="text"  name="name"    id="name"    required placeholder="e.g Shivansh"             class="input-field">
+              <ion-icon name="person-circle"></ion-icon>
+            </div>
+          </div>
 
-  <div class="form-wrapper">
-    <label for="email" class="form-label">Email</label>
-    <div class="input-wrapper">
-      <input type="email" name="email" id="email" required placeholder="e.g shivansh@mail.com" class="input-field">
-      <ion-icon name="mail"></ion-icon>
-    </div>
-  </div>
+          <div class="form-wrapper">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-wrapper">
+              <input type="email" name="email"   id="email"   required placeholder="e.g shivansh@mail.com"    class="input-field">
+              <ion-icon name="mail"></ion-icon>
+            </div>
+          </div>
 
-  <div class="form-wrapper">
-    <label for="phone" class="form-label">Phone</label>
-    <div class="input-wrapper">
-      <input type="tel" name="phone" id="phone" required placeholder="Phone Number" class="input-field">
-      <ion-icon name="call"></ion-icon>
-    </div>
-  </div>
+          <div class="form-wrapper">
+            <label for="phone" class="form-label">Phone</label>
+            <div class="input-wrapper">
+              <input type="tel"   name="phone"   id="phone"   required placeholder="Phone Number"             class="input-field">
+              <ion-icon name="call"></ion-icon>
+            </div>
+          </div>
 
-  <div class="form-wrapper">
-    <label for="message" class="form-label">Message</label>
-    <div class="input-wrapper">
-      <textarea name="message" id="message" required placeholder="Write message..." class="input-field"></textarea>
-      <ion-icon name="chatbubbles"></ion-icon>
-    </div>
-  </div>
+          <div class="form-wrapper">
+            <label for="message" class="form-label">Message</label>
+            <div class="input-wrapper">
+              <textarea name="message" id="message" required placeholder="Write message..." class="input-field"></textarea>
+              <ion-icon name="chatbubbles"></ion-icon>
+            </div>
+          </div>
 
-  <button type="submit" class="btn btn-primary">Send</button>
-</form>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+
+        </form>
 
       </section>
 
@@ -709,54 +553,29 @@ exploring new technologies through personal projects, certifications, and team c
   </main>
 
 
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-
       <p class="h1 logo">
-        <a href="#">
-          Shivansh<span>.</span>
-        </a>
+        <a href="#">Shivansh<span>.</span></a>
       </p>
-
-
-
+      <p class="copyright">
+        &copy; 2025 Shivansh Singh. Built with ❤️ in Satna, M.P.
+      </p>
     </div>
   </footer>
 
 
-
-
-
-  <!-- 
-    - #GO TO TOP
-  -->
-
+  <!-- GO TO TOP -->
   <a href="#top" class="go-top" data-go-top title="Go to Top">
     <ion-icon name="arrow-up"></ion-icon>
   </a>
 
 
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
+  <!-- Scripts -->
+  <script src="./assets/js/script.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-
 </html>

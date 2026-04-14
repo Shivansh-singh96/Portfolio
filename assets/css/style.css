@@ -1,10 +1,3 @@
-/*-----------------------------------*\
- * style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
 
 
 
@@ -1335,4 +1328,27 @@ textarea.input-field {
 
   .about-banner { max-width: 450px; }
 
+}
+
+
+
+
+
+ /**
+   * Profile Photo
+   */
+
+.logo-link {
+  display: flex;
+  align-items: left;  /* vertically left image and text */
+  gap: 8px;             /* space between image and text */
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* inherit font color */
+}
+
+.logo-link img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }

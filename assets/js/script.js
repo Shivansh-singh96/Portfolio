@@ -94,12 +94,16 @@ themeToggleBtn.addEventListener("click", function () {
  * check & apply last time selected theme from localStorage
  */
 
-if (localStorage.getItem("theme") === "light_theme") {
-  themeToggleBtn.classList.add("active");
-  document.body.classList.remove("dark_theme");
-  document.body.classList.add("light_theme");
-} else {
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark_theme") {
   themeToggleBtn.classList.remove("active");
-  document.body.classList.remove("light_theme");
   document.body.classList.add("dark_theme");
+  document.body.classList.remove("light_theme");
+} else {
+  // Default to light theme
+  themeToggleBtn.classList.add("active");
+  document.body.classList.add("light_theme");
+  document.body.classList.remove("dark_theme");
+  localStorage.setItem("theme", "light_theme");
 }

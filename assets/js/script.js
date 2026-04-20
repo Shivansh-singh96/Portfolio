@@ -220,69 +220,96 @@ if (canvas) {
 }
 
 /* ================================================
-   STACKED CARD SCROLL ANIMATION
-   Paste this entire block at the bottom of script.js
+   STACKED CARD SCROLL — LEFT TEXT / RIGHT DECK
+   RAF + lerp for silky smooth animation
    ================================================ */
 (function () {
-  const STICKY_TOP  = 70;   // must match CSS  top: 70px
-  const SCALE_STEP  = 0.04; // each buried card shrinks by this
-  const Y_STEP      = 8;    // px upward nudge per buried card
-  const DIM_STEP    = 0.11; // brightness reduction per buried card
-  const MIN_SCALE   = 0.80;
-  const MIN_BRIGHT  = 0.50;
+  const SCROLL_PER = 440;   // px per card dismissal
+  const ROTATE_DEG = 11;    // degrees per depth level
+  const LERP_EASE  = 0.10;  // lower = smoother/more lag, higher = snappier
 
-  function updateStacks() {
-    document.querySelectorAll('.stack-scene').forEach(scene => {
-      const cards = Array.from(scene.querySelectorAll('.s-card'));
+  var sections = [];   // { el, cards, target, current }
+
+  function smoothstep(t) { return t * t * (3 - 2 * t); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function init() {
+    sections = [];
+    document.querySelectorAll('.stack-split-section').forEach(function (section) {
+      var cards = Array.from(section.querySelectorAll('.s-card'));
       if (!cards.length) return;
-
-      cards.forEach((card, i) => {
-        const rect = card.getBoundingClientRect();
-
-        if (rect.top > STICKY_TOP + 2) {
-          card.style.transform = '';
-          card.style.filter    = '';
-          return;
-        }
-
-        // Count how deeply this card is buried under later cards
-        let buried = 0;
-        for (let j = i + 1; j < cards.length; j++) {
-          const nr = cards[j].getBoundingClientRect();
-          if (nr.top <= STICKY_TOP + 2) {
-            buried++;
-          } else {
-            // Partially arrived — interpolate
-            const overlap = STICKY_TOP - nr.top;
-            const h = cards[j].offsetHeight || 400;
-            buried += Math.max(0, Math.min(1, overlap / h));
-            break;
-          }
-        }
-
-        const scale  = Math.max(MIN_SCALE,  1 - buried * SCALE_STEP).toFixed(4);
-        const bright = Math.max(MIN_BRIGHT, 1 - buried * DIM_STEP).toFixed(4);
-        const yPush  = -(buried * Y_STEP).toFixed(2);
-
-        card.style.transform = `scale(${scale}) translateY(${yPush}px)`;
-        card.style.filter    = buried > 0.05 ? `brightness(${bright})` : '';
-      });
+      section.style.height =
+        (window.innerHeight - 70 + cards.length * SCROLL_PER) + 'px';
+      sections.push({ el: section, cards: cards, target: 0, current: 0 });
     });
   }
 
-  // Give each scene enough scroll height so every card gets its moment
-  function setSceneHeights() {
-    document.querySelectorAll('.stack-scene').forEach(scene => {
-      const cards = Array.from(scene.querySelectorAll('.s-card'));
-      if (!cards.length) return;
-      const cardH   = cards[0].offsetHeight || 420;
-      const scrollH = cardH * 0.75; // scroll distance per card
-      scene.style.height = (cards.length * scrollH + cardH + STICKY_TOP + 80) + 'px';
+  function applyPositions(cards, progress) {
+    var n = cards.length;
+    cards.forEach(function (card, i) {
+      var p = progress - i; // <0 waiting, 0-1 flying out, >1 gone
+
+      if (p >= 1) {
+        card.style.cssText =
+          'transform-origin:bottom left;' +
+          'transform:translateY(-120%) rotate(-55deg);' +
+          'opacity:0;visibility:hidden;' +
+          'z-index:' + (n + i) + ';pointer-events:none;';
+
+      } else if (p > 0) {
+        var t  = smoothstep(p);
+        var ty = -120 * t;
+        var r  = -55  * t;
+        card.style.cssText =
+          'transform-origin:bottom left;' +
+          'transform:translateY(' + ty + '%) rotate(' + r + 'deg);' +
+          'opacity:' + (1 - t) + ';visibility:visible;' +
+          'z-index:' + (n * 2) + ';pointer-events:none;';
+
+      } else {
+        var depth   = Math.max(0, -p);
+        var capped  = Math.min(depth, 3);
+        var rot     = -(capped * ROTATE_DEG);
+        card.style.cssText =
+          'transform-origin:bottom center;' +
+          'transform:rotate(' + rot + 'deg);' +
+          'opacity:1;visibility:visible;' +
+          'z-index:' + Math.round(n - depth + 10) + ';' +
+          'pointer-events:' + (depth < 0.5 ? 'auto' : 'none') + ';';
+      }
     });
   }
 
-  setSceneHeights();
-  updateStacks();
-  window.addEventListener('scroll', updateStacks, { passive: true });
-  window.addEventListener('resize', () => { setSceneHeights(); updateStacks(); });
-})();
+  var rafId = null;
+
+  function tick() {
+    var needsUpdate = false;
+    sections.forEach(function (s) {
+      var scrolledIn = Math.max(0, -s.el.getBoundingClientRect().top);
+      s.target = scrolledIn / SCROLL_PER;
+
+      // Lerp current toward target each frame
+      var next = lerp(s.current, s.target, LERP_EASE);
+      if (Math.abs(next - s.current) > 0.0005) {
+        s.current = next;
+        needsUpdate = true;
+      } else {
+        s.current = s.target; // snap when close enough
+      }
+      applyPositions(s.cards, s.current);
+    });
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function start() {
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  if (document.readyState === 'complete') { init(); start(); }
+  else { window.addEventListener('load', function () { init(); start(); }); }
+
+  window.addEventListener('resize', function () {
+    init();   // recalculate heights
+  });
+}());
